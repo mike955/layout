@@ -1,0 +1,26 @@
+syntax="proto3";
+
+package layout;
+
+import "third_party/google/api/annotations.proto";
+
+option go_package = "/layout";
+
+
+service ServerService {
+  rpc Test (TestRequest) returns (TestResponse){
+    option (google.api.http) = {
+      post: "/layout/test",
+      body: "*"
+    };
+  }
+}
+
+message TestRequest {
+}
+
+message TestResponse {
+  uint64 code = 1;
+  string msg = 2;
+  uint64 data = 3;
+}
