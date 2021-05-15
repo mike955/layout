@@ -9,4 +9,3 @@ mysql:
   mysql_password: "@mysqlpassword"
   mysql_database: "layout"
 rpc:
-  flake_addr: "0.0.0.0:5180"
