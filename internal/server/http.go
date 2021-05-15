@@ -16,7 +16,7 @@ func NewHTTPServer() (server *h.Server) {
 
 	server = h.NewServer(config.AppName, opts...)
 	s := service.NewLayoutService(server.Logger)
-	server.SetHandler(pb.NewServerServiceHTTPServer(s, server.Logger))
+	server.SetHandler(pb.NewLayoutServiceHTTPServer(s, server.Logger))
 	return server
 }
 

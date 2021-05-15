@@ -1,7 +1,6 @@
 package server
 
 import (
-	"fmt"
 	"io/ioutil"
 
 	grpc_prometheus "github.com/grpc-ecosystem/go-grpc-prometheus"
@@ -19,7 +18,6 @@ import (
 
 func NewGRPCServer() (server *grpc.Server) {
 	config := configs.GlobalConfig.Server
-	fmt.Printf("%+v \n", config)
 	var opts = []grpc.ServerOption{
 		grpc.Address(config.GRPCAddr),
 		grpc.Timeout(config.Timeout),
@@ -34,7 +32,7 @@ func NewGRPCServer() (server *grpc.Server) {
 	server = grpc.NewServer(config.AppName, opts...)
 	log := server.Logger.WithFields(logrus.Fields{"app": config.AppName})
 	s := service.NewLayoutService(log)
-	pb.RegisterServerServiceServer(server, s)
+	pb.RegisterLayoutServiceServer(server, s)
 	return
 }
 

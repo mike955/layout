@@ -11,7 +11,7 @@ import (
 )
 
 type LayoutService struct {
-	pb.UnimplementedServerServiceServer
+	pb.UnimplementedLayoutServiceServer
 	logger *logrus.Entry
 	data   *data.LayoutData
 }
